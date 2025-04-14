@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио Битанова С.Ж. | Аналитика данных</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #2980b9;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-weight: 300;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .portfolio-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+        
+        .portfolio-intro p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .portfolio-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.03);
+        }
+        
+        .portfolio-content {
+            padding: 25px;
+        }
+        
+        .portfolio-title {
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .portfolio-desc {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .tech-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .tech-tag.powerbi { background: #f2c811; color: #000; }
+        .tech-tag.sql { background: #00758f; }
+        .tech-tag.python { background: #3776ab; }
+        .tech-tag.flask { background: #000000; }
+        
+        footer {
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 4rem;
+            background: var(--dark);
+            color: white;
+        }
+        
+        .footer-contact {
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-img-container {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Битанов С.Ж.</h1>
+            <p class="subtitle">Портфолио аналитика данных и BI-разработчика</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="portfolio-intro">
+            <p>Профессиональные работы в области бизнес-аналитики, визуализации данных и автоматизации процессов. Отчеты Power BI, SQL-запросы и Python-скрипты для эффективной работы с данными.</p>
+        </div>
+        
+        <div class="portfolio-grid">
+            <!-- Работа 1 -->
+            <div class="portfolio-item">
+                <div class="portfolio-img-container">
+                    <img src="PowerBi - dashboard1.jpeg" alt="PowerBI Отчет по БВУ РК" class="portfolio-img">
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Отчет по БВУ РК</h3>
+                    <p class="portfolio-desc">Комплексный аналитический отчет по основным показателям деятельности БВУ Республики Казахстан с детализацией по регионам.</p>
+                    <div>
+                        <span class="tech-tag powerbi">Power BI</span>
+                        <span class="tech-tag">Аналитика</span>
+                        <span class="tech-tag">Финансы</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Работа 2 -->
+            <div class="portfolio-item">
+                <div class="portfolio-img-container">
+                    <img src="PowerBi - dashboard2.jpeg" alt="PowerBI Эффективность ЧСИ" class="portfolio-img">
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Эффективность ЧСИ</h3>
+                    <p class="portfolio-desc">Анализ эффективности частных судебных исполнителей и исполнительных производств в системе АИСОИП.</p>
+                    <div>
+                        <span class="tech-tag powerbi">Power BI</span>
+                        <span class="tech-tag">Дашборды</span>
+                        <span class="tech-tag">KPI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Работа 3 -->
+            <div class="portfolio-item">
+                <div class="portfolio-img-container">
+                    <img src="PowerBi Таблицы.jpeg" alt="PowerBI Схема связей" class="portfolio-img">
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Схема связей таблиц</h3>
+                    <p class="portfolio-desc">Архитектура данных и связи между основными таблицами в Power BI для комплексных аналитических отчетов.</p>
+                    <div>
+                        <span class="tech-tag powerbi">Power BI</span>
+                        <span class="tech-tag">Data Modeling</span>
+                        <span class="tech-tag">ETL</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Работа 4 -->
+            <div class="portfolio-item">
+                <div class="portfolio-img-container">
+                    <img src="SQL.jpeg" alt="SQL Функции" class="portfolio-img">
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">SQL: Обновление операционного дня</h3>
+                    <p class="portfolio-desc">Функции для обновления операционного дня и работы с витринами данных в СУБД.</p>
+                    <div>
+                        <span class="tech-tag sql">SQL</span>
+                        <span class="tech-tag">Database</span>
+                        <span class="tech-tag">ETL</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Работа 5 -->
+            <div class="portfolio-item">
+                <div class="portfolio-img-container">
+                    <img src="Flask.jpeg" alt="Flask Automation" class="portfolio-img">
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Flask: Автоматизация процессов</h3>
+                    <p class="portfolio-desc">Микросервис для точечного запуска функций обновления материальных вьюшек и витрин данных по расписанию.</p>
+                    <div>
+                        <span class="tech-tag flask">Flask</span>
+                        <span class="tech-tag python">Python</span>
+                        <span class="tech-tag">Автоматизация</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Работа 6 -->
+            <div class="portfolio-item">
+                <div class="portfolio-img-container">
+                    <img src="Python.jpeg" alt="Python Code" class="portfolio-img">
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Python: Обработка данных</h3>
+                    <p class="portfolio-desc">Примеры кода для обработки данных, ETL-процессов и аналитических расчетов.</p>
+                    <div>
+                        <span class="tech-tag python">Python</span>
+                        <span class="tech-tag">Data Processing</span>
+                        <span class="tech-tag">Pandas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <h3>Контакты</h3>
+            <p class="footer-contact">Email: sanjarbitanov@gmail.com | Телефон: +7 (708) 277 95 59</p>
+            <p>Битанов С.Ж.</p>
+        </div>
+    </footer>
+</body>
+</html>
