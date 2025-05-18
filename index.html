@@ -1,392 +1,448 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио Битанова С.Ж. | Аналитика данных</title>
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #2980b9;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #1a252f;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        h1 {
-            margin: 0;
-            font-size: 2.8rem;
-            font-weight: 700;
-        }
-        
-        .subtitle {
-            font-weight: 300;
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-top: 10px;
-        }
-        
-        .portfolio-intro {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 0 20px;
-        }
-        
-        .portfolio-intro p {
-            font-size: 1.1rem;
-            color: #555;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .portfolio-item {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .portfolio-img-container {
-            position: relative;
-            overflow: hidden;
-            height: 250px;
-            cursor: pointer;
-            display: flex;           /* Добавляем flex-контейнер */
-            align-items: flex-start; /* Выравниваем содержимое по верхнему краю */
-            background: #f8f9fa;     /* Фон на случай, если изображение с прозрачностью */
-        }
-        
-        .portfolio-img {
-            width: 100%;
-            /* height: 100%; */
-            object-fit: contain;     /* Меняем cover на contain */
-            object-position: top;    /* Явно указываем выравнивание по верху */
-            transition: transform 0.5s ease;
-        }
-        
-        .portfolio-item:hover .portfolio-img {
-            transform: scale(1.03);
-        }
-        
-        .portfolio-content {
-            padding: 25px;
-        }
-        
-        .portfolio-title {
-            font-size: 1.4rem;
-            margin: 0 0 10px 0;
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .portfolio-desc {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        
-        .tech-tag {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 8px;
-            margin-bottom: 8px;
-        }
-        
-        .tech-tag.powerbi { background: #f2c811; color: #000; }
-        .tech-tag.sql { background: #00758f; }
-        .tech-tag.python { background: #3776ab; }
-        .tech-tag.flask { background: #000000; }
-        
-        /* Модальное окно */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            overflow: auto;
-        }
-        
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 1200px;
-            max-height: 80vh;
-            object-fit: contain;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        
-        .close:hover {
-            color: #bbb;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 2.5rem 0;
-            margin-top: 4rem;
-            background: var(--dark);
-            color: white;
-        }
-        
-        .footer-contact {
-            font-size: 1.1rem;
-            margin-top: 15px;
-        }
-        
-        @media (max-width: 768px) {
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Резюме Битанова С.Ж. | Системный аналитик</title>
+        <style>
+            :root {
+                --primary: #2c3e50;
+                --secondary: #2980b9;
+                --accent: #e74c3c;
+                --light: #ecf0f1;
+                --dark: #1a252f;
+            }
+            
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                background-color: #f5f7fa;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            
+            header {
+                background: linear-gradient(135deg, var(--primary), var(--dark));
+                color: white;
+                text-align: center;
+                padding: 2rem 0;
+                margin-bottom: 2rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+            
+            .header-flex {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header-portfolio-item {
+                width: 350px;
+                height: 450px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .header-portfolio-img-container {
+                position: relative;
+                overflow: hidden;
+                height: 250px;
+                height: 450px;
+                cursor: pointer;
+                display: flex;
+                align-items: flex-start;
+                background: #f8f9fa;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                border: 3px solid white;
+            }
+            
+            .header-portfolio-img {
+                width: 100%;
+                object-fit: contain;
+                object-position: top;
+                transition: transform 0.5s ease;
+            }
+            
+            .header-portfolio-img-container:hover .header-portfolio-img {
+                transform: scale(1.03);
+            }
+            
             h1 {
-                font-size: 2.2rem;
+                margin: 0;
+                font-size: 2.8rem;
+                font-weight: 700;
+            }
+            
+            .subtitle {
+                font-weight: 300;
+                font-size: 1.2rem;
+                opacity: 0.9;
+                margin-top: 10px;
+            }
+            
+            .portfolio-intro {
+                text-align: center;
+                margin-bottom: 40px;
+                padding: 0 20px;
+            }
+            
+            .portfolio-intro p {
+                font-size: 1.1rem;
+                color: #555;
+                max-width: 800px;
+                margin: 0 auto;
             }
             
             .portfolio-grid {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 30px;
+                margin-top: 30px;
+            }
+            
+            .portfolio-item {
+                background: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+                border: 1px solid #e0e0e0;
+            }
+            
+            .portfolio-item:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
             }
             
             .portfolio-img-container {
-                height: 200px;
+                position: relative;
+                overflow: hidden;
+                height: 250px;
+                cursor: pointer;
+                display: flex;           /* Добавляем flex-контейнер */
+                align-items: flex-start; /* Выравниваем содержимое по верхнему краю */
+                background: #f8f9fa;     /* Фон на случай, если изображение с прозрачностью */
+            }
+            
+            .portfolio-img {
+                width: 100%;
+                /* height: 100%; */
+                object-fit: contain;     /* Меняем cover на contain */
+                object-position: top;    /* Явно указываем выравнивание по верху */
+                transition: transform 0.5s ease;
+            }
+            
+            .portfolio-item:hover .portfolio-img {
+                transform: scale(1.03);
+            }
+            
+            .portfolio-content {
+                padding: 25px;
+            }
+            
+            .portfolio-title {
+                font-size: 1.4rem;
+                margin: 0 0 10px 0;
+                color: var(--primary);
+                font-weight: 600;
+            }
+            
+            .portfolio-desc {
+                color: #666;
+                margin-bottom: 15px;
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            .tech-tag {
+                display: inline-block;
+                background: var(--secondary);
+                color: white;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                margin-right: 8px;
+                margin-bottom: 8px;
+            }
+            
+            .tech-tag.powerbi { background: #f2c811; color: #000; }
+            .tech-tag.sql { background: #00758f; }
+            .tech-tag.python { background: #3776ab; }
+            .tech-tag.flask { background: #000000; }
+            
+            /* Модальное окно */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.9);
+                overflow: auto;
             }
             
             .modal-content {
-                width: 95%;
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 1200px;
+                max-height: 80vh;
+                object-fit: contain;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
-        }
-    </style>
-</head>
-<body>
-    <header>
+            
+            .close {
+                position: absolute;
+                top: 20px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+                cursor: pointer;
+            }
+            
+            .close:hover {
+                color: #bbb;
+            }
+            
+            footer {
+                text-align: center;
+                padding: 2.5rem 0;
+                margin-top: 4rem;
+                background: var(--dark);
+                color: white;
+            }
+            
+            .footer-contact {
+                font-size: 1.1rem;
+                margin-top: 15px;
+            }
+            
+            @media (max-width: 768px) {
+                h1 {
+                    font-size: 2.2rem;
+                }
+                
+                .portfolio-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .portfolio-img-container {
+                    height: 200px;
+                }
+                
+                .modal-content {
+                    width: 95%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+
+        <header>
+            <div class="container header-flex">
+                <div class="header-portfolio-item">
+                    <div class="header-portfolio-img-container" onclick="openModal('foto1.jpeg')">
+                        <img src="foto1.jpeg" alt="Битанов Санжар" class="header-portfolio-img">
+                    </div>
+                </div>
+                <div>
+                    <h1>Битанов Санжар</h1>
+                    <p class="subtitle"> - System analyst</p>
+                    <p class="subtitle"> - System engineer</p>
+                    <p class="subtitle"> - BI developer</p>
+                    <p class="subtitle"> - Data analyst</p>
+                    <p class="subtitle"> - Data engineer</p>
+                    <p class="subtitle"> - Fullstack developer (flask/Python)</p>
+                </div>
+            </div>
+        </header>
+        
         <div class="container">
-            <h1>Битанов С.Ж.</h1>
-            <p class="subtitle">Портфолио аналитика данных и BI-разработчика</p>
-        </div>
-    </header>
-    
-    <div class="container">
-        <div class="portfolio-intro">
-            <p>Профессиональные работы в области бизнес-аналитики, визуализации данных и автоматизации процессов. Отчеты Power BI, SQL-запросы и Python-скрипты для эффективной работы с данными.</p>
+            <div class="portfolio-intro">
+                <p>Профессиональные работы в области аналитики систем Банка, визуализации данных BI, настройка Базы данных и автоматизации процессов. Отчеты Power BI, SQL-запросы и Python-скрипты для эффективной работы с данными.</p>
+            </div>
+            
+            <div class="portfolio-grid">
+
+
+
+                <!-- Резюме -->
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container" onclick="openModal('resume2.jpeg')">
+                        <img src="resume2.jpeg" alt="Python Code" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Резюме - Битанов Санжар</h3>
+                        <p class="portfolio-desc">--------</p>
+                        <div>
+                            <span class="tech-tag powerbi">"Немецкий" порядок</span>
+                            <span class="tech-tag powerbi">Автоматизация</span>
+                            <span class="tech-tag powerbi">Перфекционизм</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Работа 1 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container" onclick="openModal('PowerBi - dashboard1.jpeg')">
+                        <img src="PowerBi - dashboard1.jpeg" alt="PowerBI Отчет по БВУ РК" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Отчет по БВУ РК</h3>
+                        <p class="portfolio-desc">Комплексный аналитический отчет по основным показателям деятельности БВУ Республики Казахстан с детализацией по регионам.</p>
+                        <div>
+                            <span class="tech-tag powerbi">Power BI</span>
+                            <span class="tech-tag">Аналитика</span>
+                            <span class="tech-tag">Финансы</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Работа 2 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container" onclick="openModal('PowerBi - dashboard2.jpeg')">
+                        <img src="PowerBi - dashboard2.jpeg" alt="PowerBI Эффективность ЧСИ" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Эффективность ЧСИ</h3>
+                        <p class="portfolio-desc">Анализ эффективности частных судебных исполнителей и исполнительных производств в системе АИСОИП.</p>
+                        <div>
+                            <span class="tech-tag powerbi">Power BI</span>
+                            <span class="tech-tag">Дашборды</span>
+                            <span class="tech-tag">KPI</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Работа 3 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container" onclick="openModal('PowerBi Таблицы.jpeg')">
+                        <img src="PowerBi Таблицы.jpeg" alt="PowerBI Схема связей" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Схема связей таблиц</h3>
+                        <p class="portfolio-desc">Архитектура данных и связи между основными таблицами в Power BI для комплексных аналитических отчетов.</p>
+                        <div>
+                            <span class="tech-tag powerbi">BI developer</span>
+                            <span class="tech-tag">Data Modeling</span>
+                            <span class="tech-tag">System engineer</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Работа 4 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container" onclick="openModal('SQL.jpeg')">
+                        <img src="SQL.jpeg" alt="SQL Функции" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">SQL: Обновление операционного дня</h3>
+                        <p class="portfolio-desc">Функции для обновления операционного дня и работы с витринами данных в СУБД.</p>
+                        <div>
+                            <span class="tech-tag powerbi">Fullstack developer (flask/Python)</span>
+                            <span class="tech-tag">Data engineer</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Работа 5 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container" onclick="openModal('Flask.jpeg')">
+                        <img src="Flask.jpeg" alt="Flask Automation" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Flask: Автоматизация процессов</h3>
+                        <p class="portfolio-desc">Микросервис для точечного запуска функций обновления материальных вьюшек и витрин данных по расписанию.</p>
+                        <div>
+                            <span class="tech-tag powerbi">Flask</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Jobs</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Работа 6 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container" onclick="openModal('Python.jpeg')">
+                        <img src="Python.jpeg" alt="Python Code" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Python: Обработка данных</h3>
+                        <p class="portfolio-desc">Примеры кода для обработки данных, ETL-процессов и аналитических расчетов.</p>
+                        <div>
+                            <span class="tech-tag powerbi">Python</span>
+                            <span class="tech-tag">Data Processing</span>
+                            <span class="tech-tag">Pandas</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
         </div>
         
-        <div class="portfolio-grid">
-            <!-- Работа 1 -->
-            <div class="portfolio-item">
-                <div class="portfolio-img-container" onclick="openModal('PowerBi - dashboard1.jpeg')">
-                    <img src="PowerBi - dashboard1.jpeg" alt="PowerBI Отчет по БВУ РК" class="portfolio-img">
-                </div>
-                <div class="portfolio-content">
-                    <h3 class="portfolio-title">Отчет по БВУ РК</h3>
-                    <p class="portfolio-desc">Комплексный аналитический отчет по основным показателям деятельности БВУ Республики Казахстан с детализацией по регионам.</p>
-                    <div>
-                        <span class="tech-tag powerbi">Power BI</span>
-                        <span class="tech-tag">Аналитика</span>
-                        <span class="tech-tag">Финансы</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Работа 2 -->
-            <div class="portfolio-item">
-                <div class="portfolio-img-container" onclick="openModal('PowerBi - dashboard2.jpeg')">
-                    <img src="PowerBi - dashboard2.jpeg" alt="PowerBI Эффективность ЧСИ" class="portfolio-img">
-                </div>
-                <div class="portfolio-content">
-                    <h3 class="portfolio-title">Эффективность ЧСИ</h3>
-                    <p class="portfolio-desc">Анализ эффективности частных судебных исполнителей и исполнительных производств в системе АИСОИП.</p>
-                    <div>
-                        <span class="tech-tag powerbi">Power BI</span>
-                        <span class="tech-tag">Дашборды</span>
-                        <span class="tech-tag">KPI</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Работа 3 -->
-            <div class="portfolio-item">
-                <div class="portfolio-img-container" onclick="openModal('PowerBi Таблицы.jpeg')">
-                    <img src="PowerBi Таблицы.jpeg" alt="PowerBI Схема связей" class="portfolio-img">
-                </div>
-                <div class="portfolio-content">
-                    <h3 class="portfolio-title">Схема связей таблиц</h3>
-                    <p class="portfolio-desc">Архитектура данных и связи между основными таблицами в Power BI для комплексных аналитических отчетов.</p>
-                    <div>
-                        <span class="tech-tag powerbi">Power BI</span>
-                        <span class="tech-tag">Data Modeling</span>
-                        <span class="tech-tag">ETL</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Работа 4 -->
-            <div class="portfolio-item">
-                <div class="portfolio-img-container" onclick="openModal('SQL.jpeg')">
-                    <img src="SQL.jpeg" alt="SQL Функции" class="portfolio-img">
-                </div>
-                <div class="portfolio-content">
-                    <h3 class="portfolio-title">SQL: Обновление операционного дня</h3>
-                    <p class="portfolio-desc">Функции для обновления операционного дня и работы с витринами данных в СУБД.</p>
-                    <div>
-                        <span class="tech-tag sql">SQL</span>
-                        <span class="tech-tag">Database</span>
-                        <span class="tech-tag">ETL</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Работа 5 -->
-            <div class="portfolio-item">
-                <div class="portfolio-img-container" onclick="openModal('Flask.jpeg')">
-                    <img src="Flask.jpeg" alt="Flask Automation" class="portfolio-img">
-                </div>
-                <div class="portfolio-content">
-                    <h3 class="portfolio-title">Flask: Автоматизация процессов</h3>
-                    <p class="portfolio-desc">Микросервис для точечного запуска функций обновления материальных вьюшек и витрин данных по расписанию.</p>
-                    <div>
-                        <span class="tech-tag flask">Flask</span>
-                        <span class="tech-tag python">Python</span>
-                        <span class="tech-tag">Автоматизация</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Работа 6 -->
-            <div class="portfolio-item">
-                <div class="portfolio-img-container" onclick="openModal('Python.jpeg')">
-                    <img src="Python.jpeg" alt="Python Code" class="portfolio-img">
-                </div>
-                <div class="portfolio-content">
-                    <h3 class="portfolio-title">Python: Обработка данных</h3>
-                    <p class="portfolio-desc">Примеры кода для обработки данных, ETL-процессов и аналитических расчетов.</p>
-                    <div>
-                        <span class="tech-tag python">Python</span>
-                        <span class="tech-tag">Data Processing</span>
-                        <span class="tech-tag">Pandas</span>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <!-- Резюме -->
-            <div class="portfolio-item">
-                <div class="portfolio-img-container" onclick="openModal('resume2.jpeg')">
-                    <img src="resume2.jpeg" alt="Python Code" class="portfolio-img">
-                </div>
-                <div class="portfolio-content">
-                    <h3 class="portfolio-title">Резюме - Битанов Санжар</h3>
-                    <p class="portfolio-desc">--------</p>
-                    <div>
-                        <span class="tech-tag powerbi">Порядок</span>
-                        <span class="tech-tag powerbi">Автоматизация</span>
-                        <span class="tech-tag powerbi">Перфекционизм</span>
-                    </div>
-                </div>
-            </div>
-
+        <!-- Модальное окно -->
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage">
         </div>
-    </div>
-    
-    <!-- Модальное окно -->
-    <div id="imageModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
-    
-    <footer>
-        <div class="container">
-            <h3>Контакты</h3>
-            <p class="footer-contact">Email: sanjarbitanov@gmail.com | Телефон: +7 (708) 277 95 59</p>
-            <p>Битанов С.Ж.</p>
-        </div>
-    </footer>
-    
-    <script>
-        // Функция для открытия модального окна
-        function openModal(imageSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            
-            modal.style.display = "block";
-            modalImg.src = imageSrc;
-            
-            // Закрытие при клике вне изображения
-            modal.onclick = function(event) {
-                if (event.target === modal) {
-                    closeModal();
-                }
-            };
-            
-            // Закрытие при нажатии ESC
-            document.onkeydown = function(event) {
-                if (event.key === "Escape") {
-                    closeModal();
-                }
-            };
-        }
         
-        // Функция для закрытия модального окна
-        function closeModal() {
-            document.getElementById('imageModal').style.display = "none";
-        }
-    </script>
-</body>
-</html>
+        <footer>
+            <div class="container">
+                <h3>Контакты</h3>
+                <p class="footer-contact">Email: sanjarbitanov@gmail.com | Телефон: +7 (708) 277 95 59</p>
+                <p>Битанов С.Ж.</p>
+            </div>
+        </footer>
+        
+        <script>
+            // Функция для открытия модального окна
+            function openModal(imageSrc) {
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImage');
+                
+                modal.style.display = "block";
+                modalImg.src = imageSrc;
+                
+                // Закрытие при клике вне изображения
+                modal.onclick = function(event) {
+                    if (event.target === modal) {
+                        closeModal();
+                    }
+                };
+                
+                // Закрытие при нажатии ESC
+                document.onkeydown = function(event) {
+                    if (event.key === "Escape") {
+                        closeModal();
+                    }
+                };
+            }
+            
+            // Функция для закрытия модального окна
+            function closeModal() {
+                document.getElementById('imageModal').style.display = "none";
+            }
+        </script>
+    </body>
+    </html>
